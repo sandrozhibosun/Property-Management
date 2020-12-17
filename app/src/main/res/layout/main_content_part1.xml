@@ -1,0 +1,151 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:background="@color/smallblue"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <GridLayout
+        android:layout_width="343dp"
+        android:layout_height="308dp"
+        android:layout_margin="20dp"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/alert_button"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_notifications_70"
+            android:text="Alerts"
+            android:textColor="@color/purple_200"
+
+            android:textAllCaps="false"
+            android:background="@color/smallblue"/>
+        <Button
+            android:id="@+id/properties_button"
+            android:transitionName="property_transition_container"
+            android:textColor="@color/purple_200"
+            android:textAllCaps="false"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_house_70"
+            android:text="Properties"
+            android:background="@color/smallblue"/>
+        <Button
+            android:id="@+id/Tenants_button"
+            android:textColor="@color/purple_200"
+            android:textAllCaps="false"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_people_70"
+            android:text="Tenants"
+            android:background="@color/smallblue"/>
+        <Button
+            android:id="@+id/transaction_button"
+            android:textColor="@color/purple_200"
+            android:textAllCaps="false"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_credit_card_70"
+            android:text="Transactions"
+            android:background="@color/smallblue"/>
+        <Button
+            android:id="@+id/collect_rent_button"
+            android:textColor="@color/purple_200"
+            android:textAllCaps="false"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_money_70"
+            android:text="Collect Rent"
+            android:background="@color/smallblue"/>
+        <Button
+            android:id="@+id/to_do_list_button"
+            android:textColor="@color/purple_200"
+            android:textAllCaps="false"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_todo_list_70"
+            android:text="To-Do List"
+            android:background="@color/smallblue"/>
+        <Button
+            android:id="@+id/trips_button"
+            android:textColor="@color/purple_200"
+            android:textAllCaps="false"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_directions_car_70"
+            android:text="Trips"
+            android:background="@color/smallblue"/>
+        <Button
+            android:id="@+id/documents_button"
+            android:textColor="@color/purple_200"
+            android:textAllCaps="false"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_file_copy_70"
+            android:text="Documents"
+            android:background="@color/smallblue"/>
+        <Button
+            android:id="@+id/vendors_button"
+            android:textColor="@color/purple_200"
+            android:textAllCaps="false"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_baseline_groups_70"
+            android:text="Vendors"
+            android:background="@color/smallblue"/>
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/account_setup_string"
+            android:textColor="@color/purple_200"
+
+            android:textSize="16dp" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="100dp"
+            android:progress="20" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/add_property_hint"
+            android:textColor="@color/purple_200"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PropertyManagement</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account_setup_string">20% complete with account setup</string>
+    <string name="add_property_hint">Next, add all properties that you own or manage</string>
+    <string name="part3_text1">Your are in the free 3 month trial which ends on 2/28/2021. Based on your current number of units, after that the price will be $5.00 per month</string>
+    <string name="part3_text2">You haven not entered your billing info yet! Make sure you enter it before 2/28/2021 for continued access to Perma</string>
+    <string name="property_part1_hint">Enter the rental property‘s address below. The Address is used to label each property, and to make it easier to log trips</string>
+    <string name="property_part2_hint">Next we’d like some basic information about the property. if you input the Purchase Price then we can calculate your property‘s Cash on Cash Invested% correctly</string>
+</resources>
