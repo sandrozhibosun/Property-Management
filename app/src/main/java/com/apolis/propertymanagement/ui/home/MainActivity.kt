@@ -13,10 +13,8 @@ import androidx.annotation.RequiresApi
 import com.apolis.propertymanagement.R
 import com.apolis.propertymanagement.helpers.SessionManager
 import com.apolis.propertymanagement.ui.home.properties.PropertyActivity
-import com.google.android.material.transition.platform.MaterialContainerTransform
-import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
-import com.google.android.material.transition.platform.MaterialElevationScale
-import com.google.android.material.transition.platform.MaterialFadeThrough
+import com.apolis.propertymanagement.ui.home.properties.PropertyViewActivity
+import com.google.android.material.transition.platform.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_content_part1.*
 import kotlinx.android.synthetic.main.main_content_part3.*
@@ -24,20 +22,27 @@ import kotlinx.android.synthetic.main.main_content_part3.*
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
         with(window){
-            requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
 
             var enter= MaterialFadeThrough().apply {
                 addTarget(R.id.main_container)
                 duration=2000L
 
             }
+            var exit = MaterialSharedAxis(MaterialSharedAxis.Z, true).apply {
+                secondaryAnimatorProvider=null
+                duration=2000L
+            addTarget(R.id.main_container)
+
+            }
 
             window.enterTransition = enter
+            window.exitTransition=exit
             window.allowEnterTransitionOverlap = true
-            setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
-            window.sharedElementsUseOverlay=false
+            //scale
+//            setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+//            window.sharedElementsUseOverlay=false
 
         }
         super.onCreate(savedInstanceState)
@@ -55,12 +60,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             properties_button->{
-                val intent= Intent(this,PropertyActivity::class.java)
+                val intent= Intent(this, PropertyViewActivity::class.java)
 
                 val options = ActivityOptions.makeSceneTransitionAnimation(
-                    this,
-                    properties_button,
-                    "property_transition_container" // The transition name to be matched in Activity B.
+                    this
+//                    properties_button,
+//                    "property_transition_container" // The transition name to be matched in Activity B.
                 )
                 startActivity(intent,options.toBundle())
 

@@ -1,22 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="500dp"
-    android:background="@color/honeydew">
-    <TextView
+<layout>
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.apolis.propertymanagement.ui.home.properties.PropertyViewModel" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/properties_container3"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Step2: Property Address"
-        android:textSize="25dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:layout_margin="10dp"
-        android:text="@string/property_part1_hint"/>
-</LinearLayout>
+        android:layout_height="400dp"
+        android:background="@color/honeydew"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Step3: Mortgage Information"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/property_part3_hint"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/mortgage_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Does this property have a mortgage?  "
+                android:checked="@={viewmodel.mortgageCheck}"
+                android:textSize="20sp"
+
+                />
+
+            <Button
+                android:id="@+id/save_tenants_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/camera_button_format"
+                android:drawableStart="@drawable/ic_baseline_insert_drive_file_30"
+                android:padding="10dp"
+                android:text="Save &amp; Add Tenants"
+
+                android:textAllCaps="false"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

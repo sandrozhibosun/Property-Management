@@ -8,4 +8,5 @@
     <string name="part3_text2">You haven not entered your billing info yet! Make sure you enter it before 2/28/2021 for continued access to Perma</string>
     <string name="property_part1_hint">Enter the rental property‘s address below. The Address is used to label each property, and to make it easier to log trips</string>
     <string name="property_part2_hint">Next we’d like some basic information about the property. if you input the Purchase Price then we can calculate your property‘s Cash on Cash Invested% correctly</string>
+    <string name="property_part3_hint">If your property has a mortgage, then inputting its mortgage terms enables PerMa to automaticlly set the principal, interest, and escrow amounts when you log mortgage payment transactions. If you made extra principal payments, then logging them as mortgage principal transactions will update the amortization schedule</string>
 </resources>

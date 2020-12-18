@@ -2,17 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.apolis.propertymanagement">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PropertyManagement">
-        <activity android:name=".ui.home.properties.PropertyActivity"></activity>
+        android:theme="@style/Theme.PropertyManagement"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.home.Tenants.TenantsActivity"></activity>
+        <activity android:name=".ui.home.properties.PropertyViewActivity" />
+        <activity android:name=".ui.home.properties.PropertyActivity" />
         <activity android:name=".ui.auth.RegisterActivity" />
         <activity android:name=".ui.auth.LoginActivity" />
-        <activity android:name=".ui.auth.MainActivity" />
         <activity android:name=".ui.splash.StartActivity" />
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
