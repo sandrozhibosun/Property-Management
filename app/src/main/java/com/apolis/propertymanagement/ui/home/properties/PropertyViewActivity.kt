@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
@@ -17,6 +18,7 @@ import com.apolis.propertymanagement.helpers.SessionManager
 import com.google.android.material.transition.platform.MaterialFadeThrough
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import kotlinx.android.synthetic.main.activity_property_view.*
+import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.main_content_part1.*
 
 class PropertyViewActivity : AppCompatActivity(),PropertyViewListener {
@@ -56,6 +58,7 @@ class PropertyViewActivity : AppCompatActivity(),PropertyViewListener {
     }
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun init() {
+        setupToolbar()
         onStarted()
 
         propertyAdapter= PropertyAdapter(this)
@@ -76,6 +79,26 @@ class PropertyViewActivity : AppCompatActivity(),PropertyViewListener {
             startActivity(intent,options.toBundle())
 
         }
+    }
+    private fun setupToolbar() {
+
+
+        var toolbar = toolbar
+        toolbar.title = "Properties List"
+
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            android.R.id.home -> {
+
+                finish()
+            }
+        }
+        return true
     }
 
     override fun onStarted() {

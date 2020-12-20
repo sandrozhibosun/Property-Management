@@ -7,6 +7,8 @@
     tools:context=".ui.home.properties.PropertyViewActivity"
     android:id="@+id/propertyview_container">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,13 +16,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
 
+        <include layout="@layout/app_bar" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/property_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:layout_weight="1"
             >
 
         </androidx.recyclerview.widget.RecyclerView>

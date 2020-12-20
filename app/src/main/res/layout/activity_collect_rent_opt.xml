@@ -6,42 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/honeydew"
-    tools:context=".ui.home.Tenants.TenantsActivity">
+    >
     <include layout="@layout/app_bar" />
     <Button
-        android:id="@+id/add_tenants_button"
+        android:id="@+id/property_collect_button"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:background="@color/white"
-        android:drawableEnd="@drawable/ic_baseline_add_35"
+        android:drawableEnd="@drawable/ic_baseline_house_35"
         android:layout_marginBottom="5dp"
         android:textAllCaps="false"
         android:padding="10dp"
-        android:text="Add New"
+        android:text="Property"
         android:textSize="16dp"
         />
     <Button
 
-        android:id="@+id/contact_tenant_button"
+        android:id="@+id/tenants_collect_button"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_marginBottom="5dp"
         android:textAllCaps="false"
         android:background="@color/white"
-        android:drawableEnd="@drawable/ic_baseline_local_phone_35"
-        android:padding="10dp"
-        android:text="Contact tenants"
-        android:textSize="16dp" />
-    <Button
-        android:id="@+id/applicants_button"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginBottom="10dp"
-        android:textAllCaps="false"
-        android:background="@color/white"
         android:drawableEnd="@drawable/ic_baseline_applicants_35"
         android:padding="10dp"
-        android:text="Applicants"
+        android:text="Tenants"
         android:textSize="16dp" />
+
 
 </LinearLayout>

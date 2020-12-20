@@ -1,4 +1,4 @@
-package com.apolis.propertymanagement.ui.home.Tenants
+package com.apolis.propertymanagement.ui.home.document
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.view.MenuItem
 import com.apolis.propertymanagement.R
 import kotlinx.android.synthetic.main.app_bar.*
 
-class TenantsActivity : AppCompatActivity() {
+class DocumentsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tenants)
+        setContentView(R.layout.activity_documents)
         init()
     }
     private fun init(){
@@ -19,7 +19,7 @@ class TenantsActivity : AppCompatActivity() {
 
 
         var toolbar = toolbar
-        toolbar.title = "Tenants"
+        toolbar.title = "ADD Document"
 
         setSupportActionBar(toolbar)
 

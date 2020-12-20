@@ -7,15 +7,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.Fade
 import android.transition.Slide
+import android.view.MenuItem
 import android.view.View
 import android.view.Window
 import androidx.annotation.RequiresApi
 import com.apolis.propertymanagement.R
 import com.apolis.propertymanagement.helpers.SessionManager
+import com.apolis.propertymanagement.ui.home.Tenants.TenantsActivity
+import com.apolis.propertymanagement.ui.home.collectRent.CollectRentOptActivity
+import com.apolis.propertymanagement.ui.home.document.DocumentsActivity
 import com.apolis.propertymanagement.ui.home.properties.PropertyActivity
 import com.apolis.propertymanagement.ui.home.properties.PropertyViewActivity
+import com.apolis.propertymanagement.ui.home.todoList.ToDoListActivity
+import com.apolis.propertymanagement.ui.home.transactions.TransactionsOptActivity
+import com.apolis.propertymanagement.ui.home.trips.TripsActivity
 import com.google.android.material.transition.platform.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.main_content_part1.*
 import kotlinx.android.synthetic.main.main_content_part3.*
 
@@ -52,8 +60,39 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun init(){
+
+        setupToolbar()
+
         properties_button.setOnClickListener(this)
         log_out_button.setOnClickListener(this)
+        Tenants_button.setOnClickListener(this)
+        collect_rent_button.setOnClickListener(this)
+        to_do_list_button.setOnClickListener(this)
+        trips_button.setOnClickListener(this)
+        documents_button.setOnClickListener(this)
+        vendors_button.setOnClickListener (this)
+        transaction_button.setOnClickListener(this)
+    }
+
+    private fun setupToolbar() {
+
+
+        var toolbar = toolbar
+        toolbar.title = "Main Console"
+
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            android.R.id.home -> {
+
+                finish()
+            }
+        }
+        return true
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -72,6 +111,37 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             log_out_button->{
                 SessionManager(this).logout()
+            }
+            Tenants_button->{
+                val intent= Intent(this, TenantsActivity::class.java)
+                startActivity(intent)
+
+            }
+            transaction_button->{
+                val intent= Intent(this, TransactionsOptActivity::class.java)
+                startActivity(intent)
+            }
+            collect_rent_button->{
+                val intent= Intent(this, CollectRentOptActivity::class.java)
+                startActivity(intent)
+
+            }
+            to_do_list_button->{
+                val intent= Intent(this, ToDoListActivity::class.java)
+                startActivity(intent)
+
+            }
+            trips_button->{
+                val intent= Intent(this, TripsActivity::class.java)
+                startActivity(intent)
+            }
+            documents_button->{
+                val intent= Intent(this, DocumentsActivity::class.java)
+                startActivity(intent)
+
+            }
+            vendors_button->{
+
             }
 
         }

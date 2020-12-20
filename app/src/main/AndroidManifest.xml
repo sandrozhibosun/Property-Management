@@ -16,7 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PropertyManagement"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.home.Tenants.TenantsActivity"></activity>
+        <activity android:name=".ui.home.document.DocumentsActivity"></activity>
+        <activity android:name=".ui.home.trips.TripsActivity" />
+        <activity android:name=".ui.home.todoList.ToDoListActivity" />
+        <activity android:name=".ui.home.collectRent.CollectRentOptActivity" />
+        <activity android:name=".ui.home.transactions.TransactionsOptActivity" />
+        <activity android:name=".ui.home.Tenants.TenantsActivity" />
         <activity android:name=".ui.home.properties.PropertyViewActivity" />
         <activity android:name=".ui.home.properties.PropertyActivity" />
         <activity android:name=".ui.auth.RegisterActivity" />
