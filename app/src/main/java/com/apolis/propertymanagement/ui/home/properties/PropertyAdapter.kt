@@ -14,6 +14,9 @@ class PropertyAdapter (var mContext:Context,var mList:ArrayList<Property> = Arra
         RecyclerView.Adapter<PropertyAdapter.MyViewHolder>(){
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         fun bind(property: Property){
+            if(property.image==null){
+                return
+            }
             Picasso.get()
                 .load(property.image)
                 .error(R.drawable.ic_launcher_background)

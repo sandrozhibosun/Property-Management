@@ -1,7 +1,10 @@
 package com.apolis.propertymanagement.data.repositories
 
+import android.app.Activity
+import android.content.ContentResolver
 import android.net.Uri
 import android.util.Log
+import androidx.core.net.toFile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.apolis.propertymanagement.data.models.*
@@ -13,16 +16,20 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
+import java.net.URI
 
 class PropertyRepository() {
 
 
-    fun uploadImage(imageUri:Uri): LiveData<ImageApi?> {
+    fun uploadImage(realUri:String): LiveData<ImageApi?> {
         var imageApiResponse=MutableLiveData<ImageApi?>()
-//        var file =File(imageUri.path!!)
+        var file=File(realUri)
+        Log.d("abc"," file:${file.path}")
 
-       var  reqFile:RequestBody? = RequestBody.create(MediaType.parse("multipart/form-data"),imageUri.path!!)
-        var body=MultipartBody.Part.createFormData("image",imageUri.lastPathSegment?:"random.jpg",reqFile!!)
+
+
+       var  reqFile:RequestBody? = RequestBody.create(MediaType.parse("multipart/form-data"),file)
+        var body=MultipartBody.Part.createFormData("image",file.name,reqFile!!)
         MyApi().uploadImage(body).enqueue(object: Callback<ImageResponse> {
             override fun onFailure(call: Call<ImageResponse>, t: Throwable) {
                 Log.d("abc",t.message.toString())

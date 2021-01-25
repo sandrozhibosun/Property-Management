@@ -35,8 +35,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textField_landlord"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/edit_text_style"
             app:startIconDrawable="@drawable/ic_baseline_house_24"
             android:hint="Address">
@@ -54,8 +56,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textField_Email"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
             android:background="@drawable/edit_text_style"
             android:hint="City">
@@ -73,8 +77,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textField_password"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/edit_text_style"
             app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
             android:hint="State/Porvice">
@@ -92,8 +98,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textField_confirm_password"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/edit_text_style"
             app:startIconDrawable="@drawable/ic_baseline_markunread_mailbox_24"
             android:hint="Zip/Postal Code">

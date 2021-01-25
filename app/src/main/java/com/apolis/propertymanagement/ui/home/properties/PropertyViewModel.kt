@@ -28,9 +28,9 @@ class PropertyViewModel :ViewModel(){
     var dashBoardCheck=false
 
 
-    fun onSaveButtonClicked(imageUri:Uri)
+    fun onSaveButtonClicked(realUri:String)
     {
-    var imageResponse=propertuRepository.uploadImage(imageUri)
+    var imageResponse=propertuRepository.uploadImage(realUri)
     propertyListener?.onSuccessImage(imageResponse)
 
     }

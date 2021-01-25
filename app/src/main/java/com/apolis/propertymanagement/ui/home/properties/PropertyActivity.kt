@@ -4,19 +4,21 @@ import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
+import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
 import android.view.MenuItem
-import android.view.View
 import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -38,8 +40,10 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_property.*
 import kotlinx.android.synthetic.main.app_bar.*
+import java.io.File
 
 
 class PropertyActivity : AppCompatActivity(), PropertyListener {
@@ -51,8 +55,7 @@ class PropertyActivity : AppCompatActivity(), PropertyListener {
     var imageFilePath: String? = null
     var latitude:Double?=0.00
     var longitude:Double?=0.00
-
-
+    var realUri:String=""
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -177,6 +180,18 @@ class PropertyActivity : AppCompatActivity(), PropertyListener {
                     imageUri = data!!.data
                     this.d("uri: ${imageUri.toString()}" +
                             "path:${imageUri!!.path}")
+                     realUri=getRealPath(imageUri!!)!!
+
+                    Log.d("abc"," realUri:${realUri}")
+
+                    val file = File(realUri)
+                    Picasso.get()
+                        .load(file)
+                        .error(R.drawable.ic_launcher_background)
+                        .into(picture_preview)
+                    Log.d("abc"," file:${file.path}")
+
+
 //                    Picasso.get().load(selectImage)
 //                        .into(pre_view)
 
@@ -187,6 +202,18 @@ class PropertyActivity : AppCompatActivity(), PropertyListener {
             }
 
         }
+    }
+    private fun getRealPath(uri: Uri):String?{
+
+        var path: String? = null
+        val proj = arrayOf<String>(MediaStore.MediaColumns.DATA)
+        val cursor: Cursor? = contentResolver.query(uri, proj, null, null, null)
+        if (cursor!!.moveToFirst()) {
+            val column_index: Int = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)
+            path = cursor.getString(column_index)
+        }
+        cursor.close()
+        return path
     }
 
     private fun showDialogue() {
@@ -222,7 +249,7 @@ class PropertyActivity : AppCompatActivity(), PropertyListener {
             this.d("${SessionManager(this).getUserId()!!}")
             return
         }
-        else propertyViewModel.onSaveButtonClicked(imageUri!!)
+        else propertyViewModel.onSaveButtonClicked(realUri)
         this.d("on Saved")
     }
 

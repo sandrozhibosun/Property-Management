@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+    <include layout="@layout/app_bar" />
 <ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="1200dp"
         android:orientation="vertical">
-        <include layout="@layout/app_bar" />
+
     <include layout="@layout/main_content_part1"/>
         <include layout="@layout/main_content_part2"/>
         <include layout="@layout/main_content_part3"/>
@@ -19,3 +25,4 @@
     </LinearLayout>
 
 </ScrollView>
+    </LinearLayout>
